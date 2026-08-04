@@ -1,0 +1,8 @@
+{
+  "versionName": "1.0.16",
+  "versionCode": 16,
+  "minimumVersionCode": 15,
+  "apkUrl": "https://github.com/mickmeck/watch-it-updates/releases/latest/download/Watch-It-Update.apk",
+  "releaseNotes": "Automatische Updateprüfung über GitHub hinzugefügt.",
+  "mandatory": false
+}
