@@ -2,7 +2,7 @@
   "versionName": "1.0.17",
   "versionCode": 17,
   "minimumVersionCode": 16,
-  "apkUrl": "https://github.com/mickmeck/watch-it-updates/releases/latest/download/Watch-It-Update.apk",
+  "apkUrl": "https://github.com/mickmeck/watch-it-updates/releases/download/v1.0.17/Watch-It-v1.0.17-GitHub.apk",
   "sha256": "ae57dfbe9b6cbb6bd3589194898fac81a40c7c2bb9cece436cf6e793c408a232",
   "releaseNotes": "Quality & Stability: Zähler korrigiert, gemeinsame Videos sauber abgeschlossen, Löschsperren und Vorschlagsrechte gehärtet, Chat/Push/Updater verbessert.",
   "mandatory": false
