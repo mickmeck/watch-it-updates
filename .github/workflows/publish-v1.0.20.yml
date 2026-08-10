@@ -21,7 +21,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -fL --retry 3 --retry-delay 2 'https://sdmntprnortheu.oaiusercontent.com/files/00000000-cb28-81f4-a624-732e6f9dd14d/raw?se=2026-08-10T00%3A29%3A57Z&sp=r&sv=2026-02-06&sr=b&scid=c8c4628f-da8d-5584-b283-0929e653137e&skoid=ba81670d-b682-4d2d-9682-ac0ffdfb3fa1&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T02%3A47%3A16Z&ske=2026-08-10T02%3A47%3A16Z&sks=b&skv=2026-02-06&sig=FWmYgFE82M0nYCeiOyH/yVuzoxMwBNAwcKMzwQyZ2jk%3D' -o unsigned.zip
+          curl -fL --retry 3 --retry-delay 2 'https://sdmntprnortheu.oaiusercontent.com/files/00000000-ab8c-81f4-bff9-cdeff8af6f30/raw?se=2026-08-10T00%3A33%3A07Z&sp=r&sv=2026-02-06&sr=b&scid=56dc4dd4-82aa-56da-94eb-0ce6eec36341&skoid=ba81670d-b682-4d2d-9682-ac0ffdfb3fa1&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-09T04%3A14%3A31Z&ske=2026-08-10T04%3A14%3A31Z&sks=b&skv=2026-02-06&sig=44WFSYUgvziSTYBcocOdR%2Bt6Y7vc2DyOBhh2K1JmMuc%3D' -o unsigned.zip
           unzip -q unsigned.zip
           echo '09a78ac9c8876d3e6cebb9da82b42d72f58026b0937cf5c0612842d9f79fc0d6  Watch-It-v1.0.20-PRODUCTION-RC-UNSIGNED.apk' | sha256sum -c -
 
@@ -32,45 +32,80 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           import base64, hashlib, struct
-
-          src = Path('Watch-It-v1.0.20-PRODUCTION-RC-UNSIGNED.apk')
-          out = Path('Watch-It-v1.0.20-GitHub.apk')
-          unsigned = src.read_bytes()
+          unsigned = Path('Watch-It-v1.0.20-PRODUCTION-RC-UNSIGNED.apk').read_bytes()
           expected_unsigned = '09a78ac9c8876d3e6cebb9da82b42d72f58026b0937cf5c0612842d9f79fc0d6'
           expected_signed = '78006aa4a46c039aa866c00dd979546e208f5adbf6ce9ab8ecfb2c6e5fa57943'
           if hashlib.sha256(unsigned).hexdigest() != expected_unsigned:
               raise SystemExit('Unsigned APK digest mismatch')
-
           block = base64.b64decode('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')
-          eocd_sig = b'PK\x05\x06'
-          eocd = unsigned.rfind(eocd_sig)
+          eocd = unsigned.rfind(b'PK\x05\x06')
           if eocd < 0:
               raise SystemExit('EOCD not found')
           cdoff = struct.unpack_from('<I', unsigned, eocd + 16)[0]
           signed = bytearray(unsigned[:cdoff] + block + unsigned[cdoff:])
-          new_eocd = eocd + len(block)
-          struct.pack_into('<I', signed, new_eocd + 16, cdoff + len(block))
-          out.write_bytes(signed)
+          struct.pack_into('<I', signed, eocd + len(block) + 16, cdoff + len(block))
+          Path('Watch-It-v1.0.20-GitHub.apk').write_bytes(signed)
           digest = hashlib.sha256(signed).hexdigest()
           if digest != expected_signed:
               raise SystemExit(f'Signed APK digest mismatch: {digest}')
-          print('Verified signed SHA-256:', digest)
           PY
           unzip -t Watch-It-v1.0.20-GitHub.apk >/dev/null
           echo '78006aa4a46c039aa866c00dd979546e208f5adbf6ce9ab8ecfb2c6e5fa57943  Watch-It-v1.0.20-GitHub.apk' | sha256sum -c -
+          test "$(stat -c %s Watch-It-v1.0.20-GitHub.apk)" = '5895710'
 
-      - name: Publish GitHub Release v1.0.20
+      - name: Publish or repair GitHub Release asset
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
           if gh release view v1.0.20 >/dev/null 2>&1; then
-            echo 'Release v1.0.20 already exists; refusing to overwrite.' >&2
-            exit 1
+            gh release upload v1.0.20 Watch-It-v1.0.20-GitHub.apk --clobber
+          else
+            gh release create v1.0.20 Watch-It-v1.0.20-GitHub.apk \
+              --target main \
+              --title 'Watch It! v1.0.20' \
+              --notes 'Quality- und Stabilitätsrelease. Behebt den Kommentar-/Tastaturfokus, enthält die gehärtete Architektur und Datenvalidierung, verbessert Native Bridge/Teilen/Updater und wurde mit automatisierten Qualitäts-, Browser-, Firestore- und Android-Clean-Build-Gates sowie einem echten Upgrade-Test auf dem Gerät geprüft.' \
+              --latest
           fi
-          gh release create v1.0.20 Watch-It-v1.0.20-GitHub.apk \
-            --target main \
-            --title 'Watch It! v1.0.20' \
-            --notes 'Quality- und Stabilitätsrelease. Behebt den Kommentar-/Tastaturfokus, enthält die gehärtete Architektur und Datenvalidierung, verbessert Native Bridge/Teilen/Updater und wurde mit automatisierten Qualitäts-, Browser-, Firestore- und Android-Clean-Build-Gates sowie einem echten Upgrade-Test auf dem Gerät geprüft.' \
-            --latest
+
+      - name: Verify public release download before activating updater
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL='https://github.com/mickmeck/watch-it-updates/releases/download/v1.0.20/Watch-It-v1.0.20-GitHub.apk'
+          curl -fL --retry 6 --retry-delay 3 "$URL" -o hosted.apk
+          echo '78006aa4a46c039aa866c00dd979546e208f5adbf6ce9ab8ecfb2c6e5fa57943  hosted.apk' | sha256sum -c -
+          test "$(stat -c %s hosted.apk)" = '5895710'
+
+      - name: Activate v1.0.20 in update.json only after hosted verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('update.json')
+          data = json.loads(p.read_text())
+          if data.get('versionCode') not in (18, 20):
+              raise SystemExit(f'Unexpected current versionCode: {data.get("versionCode")}')
+          data.update({
+              'versionName': '1.0.20',
+              'versionCode': 20,
+              'minimumVersionCode': 18,
+              'apkUrl': 'https://github.com/mickmeck/watch-it-updates/releases/download/v1.0.20/Watch-It-v1.0.20-GitHub.apk',
+              'sha256': '78006aa4a46c039aa866c00dd979546e208f5adbf6ce9ab8ecfb2c6e5fa57943',
+              'releaseNotes': 'Quality & Stabilität: Kommentar-/Tastaturfokus behoben, Architektur und Datenvalidierung gehärtet sowie Native Bridge, Teilen und Updater stabilisiert. Automatisierte Qualitäts-, Browser-, Firestore- und Android-Clean-Build-Prüfungen sowie echter Geräte-Upgrade-Test bestanden.',
+              'mandatory': False,
+          })
+          p.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
+          PY
+          git config user.name 'watch-it-release'
+          git config user.email 'watch-it-release@users.noreply.github.com'
+          git add update.json
+          if git diff --cached --quiet; then
+            echo 'update.json already active at v1.0.20'
+          else
+            git commit -m 'Release Watch It! v1.0.20'
+            git push origin HEAD:main
+          fi
