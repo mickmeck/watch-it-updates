@@ -1,9 +1,9 @@
 {
-  "versionName": "1.0.18",
-  "versionCode": 18,
-  "minimumVersionCode": 17,
-  "apkUrl": "https://github.com/mickmeck/watch-it-updates/releases/download/v1.0.18/Watch-It-v1.0.18-GitHub.apk",
-  "sha256": "0cc5447dfbea457fa6658b1ef5525a3bcfc8ae9a1e75dab21ec0551c9e383107",
-  "releaseNotes": "Hotfix: Kommentarfelder und andere Texteingaben in Dialogen verlieren beim Tippen nicht mehr den Fokus. Die Android-Tastatur bleibt beim Schreiben geöffnet.",
+  "versionName": "1.0.20",
+  "versionCode": 20,
+  "minimumVersionCode": 18,
+  "apkUrl": "https://github.com/mickmeck/watch-it-updates/releases/download/v1.0.20/Watch-It-v1.0.20-GitHub.apk",
+  "sha256": "78006aa4a46c039aa866c00dd979546e208f5adbf6ce9ab8ecfb2c6e5fa57943",
+  "releaseNotes": "Quality & Stabilität: Kommentar-/Tastaturfokus behoben, Architektur und Datenvalidierung gehärtet sowie Native Bridge, Teilen und Updater stabilisiert. Automatisierte Qualitäts-, Browser-, Firestore- und Android-Clean-Build-Prüfungen sowie echter Geräte-Upgrade-Test bestanden.",
   "mandatory": false
 }
