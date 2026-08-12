@@ -1,9 +1,10 @@
 {
-  "versionName": "1.0.21",
-  "versionCode": 21,
+  "versionName": "1.0.22",
+  "versionCode": 22,
   "minimumVersionCode": 18,
-  "apkUrl": "https://github.com/mickmeck/watch-it-updates/releases/download/v1.0.21/Watch-It-v1.0.21-GitHub.apk",
-  "sha256": "d6082c0575bdb578e5108169c1a29fef0adfb5332212fc42a9a6070c29866213",
-  "releaseNotes": "Qualitäts- und Stabilitätsupdate: professionellere Update-, Lade-, Leer- und Aktionszustände, gehärtete Push-, Parallelitäts- und Share-Logik, Chat- und Accessibility-Polish sowie datenschutzfreundliche Diagnostik und robustere Qualitäts-/Release-Gates.",
+  "apkUrl": "https://github.com/mickmeck/watch-it-updates/releases/download/v1.0.22/Watch-It-v1.0.22-GitHub.apk",
+  "sha256": "8f5968135df0270501e30a12f3bcd448312e03087bfac1372f44f2bbf1b39d3b",
+  "apkSizeBytes": 5430766,
+  "releaseNotes": "Gesehen-Archiv, globale Suche, Instant Picker, private gemeinsame Abstimmung, sichere YouTube-Suche und weitere Qualitäts-/Stabilitätsverbesserungen.",
   "mandatory": false
 }
