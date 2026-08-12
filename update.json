@@ -1,9 +1,9 @@
 {
-  "versionName": "1.0.20",
-  "versionCode": 20,
+  "versionName": "1.0.21",
+  "versionCode": 21,
   "minimumVersionCode": 18,
-  "apkUrl": "https://github.com/mickmeck/watch-it-updates/releases/download/v1.0.20/Watch-It-v1.0.20-GitHub.apk",
-  "sha256": "78006aa4a46c039aa866c00dd979546e208f5adbf6ce9ab8ecfb2c6e5fa57943",
-  "releaseNotes": "Quality & Stabilität: Kommentar-/Tastaturfokus behoben, Architektur und Datenvalidierung gehärtet sowie Native Bridge, Teilen und Updater stabilisiert. Automatisierte Qualitäts-, Browser-, Firestore- und Android-Clean-Build-Prüfungen sowie echter Geräte-Upgrade-Test bestanden.",
+  "apkUrl": "https://github.com/mickmeck/watch-it-updates/releases/download/v1.0.21/Watch-It-v1.0.21-GitHub.apk",
+  "sha256": "d6082c0575bdb578e5108169c1a29fef0adfb5332212fc42a9a6070c29866213",
+  "releaseNotes": "Qualitäts- und Stabilitätsupdate: professionellere Update-, Lade-, Leer- und Aktionszustände, gehärtete Push-, Parallelitäts- und Share-Logik, Chat- und Accessibility-Polish sowie datenschutzfreundliche Diagnostik und robustere Qualitäts-/Release-Gates.",
   "mandatory": false
 }
